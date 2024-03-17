@@ -15,31 +15,37 @@ console.log('Test - should say "Hello World!"', hello());
 // 2. Function to return an personalized hello, using the `name` argument.
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
 function helloName(name) {
-  return;
+  return `Hello, ${name}!`;
 }
 // Remember to call the function to test
+console.log(helloName('Asia'));
 
 
 // 3. Function to add two numbers together & return the result
-function addNumbers(firstNumber) {
-  // return firstNumber + secondNumber;
+function addNumbers(firstNumber, secondNumber) {
+  let sum = firstNumber + secondNumber;
+  return sum;
 }
-
+console.log('The sum of two numbers are: ',addNumbers(5,6));
 
 // 4. Function to multiply three numbers & return the result
-function multiplyThree() {
+function multiplyThree(num1,num2,num3) {
+  let answer = num1 * num2 * num3;
+  return answer;
 
 }
-
+console.log('The answer of multiplying three numbers are:',multiplyThree(5,6,7));
 
 // 5. Function that will return true if a number is positive, 
 //    or greater than zero, and false otherwise
 function isPositive(number) {
   if (number > 0) {
-    return;
-  }
-  return;
+    return true;
+  } else 
+  return false;
 }
+console.log('Check if this number is positive number:',isPositive(1));
+console.log('Check if this number is number is negative number:',isPositive(-1));
 // Call the function to test each outcome (true & false) 
 // Write a separate console.log statement for each outcome
 
@@ -47,40 +53,78 @@ function isPositive(number) {
 // 6. Function to return the _last_ item in an array. If the 
 //    array is empty, return `undefined`.
 function getLast(array) {
-
+  if (array.length === 0) {
+    return undefined;
+  } else
+    return array[array.length - 1]
 }
-
+console.log('Get me the last item in array: ',getLast([2, 2, 4, 5, 6]));
+console.log('Get me the last item in array: ',getLast([]));
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
+
+let arrayExample = [4, 8, 9,10,11];
 function find(value, array) {
-
+  for (let item of array) {
+    if (item === value) {
+      return true;
+    }
+  }
+  return false;
 }
-
+console.log('Find if the value is inside the array: ',find(7, arrayExample));
+console.log('Find if the value is inside the array: ',find(9, arrayExample));
+console.log('Find if the value is inside the array: ',find(12, arrayExample));
+console.log('Find if the value is inside the array: ',find(11, arrayExample));
 // ----------------------
 // Stretch Goals
 // ----------------------
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
+  if (string.charAt(0) === letter) {
+    console.log(`'${letter}' is the first letter in '${string}'.`);
+    return true;
+  } else {
+    console.log(`'${letter}' is not the first letter in '${string}'.`);
+    return false;
+  }
 }
-
 
 // 9. Function to return the sum of all numbers in an array
 function sumAll(array) {
   let sum = 0;
   // TODO: loop to add items
 
+  for(i=0; i<array.length; i++){
+    sum = sum + array[i];
+    console.log(`Adding ${array[i]}, sum is now ${sum}`);
+  }
+console.log(`Final sum: ${sum}`);
   // TODO: return the sum
+    return sum;
 }
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
-function allPositive() {
+function allPositive(array) {
+  let positiveArray = [];
 
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > 0) {
+      positiveArray.push(array[i]);
+      console.log(`${array[i]} is positive. Added to the positive array.`);
+    } else {
+      console.log(`${array[i]} is not positive.`);
+    }
+  }
+
+  console.log("Positive numbers array:", positiveArray);
+  return positiveArray;
 }
+
 
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
